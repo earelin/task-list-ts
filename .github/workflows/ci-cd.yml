@@ -1,5 +1,13 @@
 name: Continuous Integration / Continuous Delivery
-on: [push]
+on:
+  push:
+    branches:
+      - trunk
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   setup:
     runs-on: ubuntu-latest
