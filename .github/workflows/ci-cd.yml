@@ -4,12 +4,8 @@ on:
     branches:
       - trunk
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  setup:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,18 +13,6 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run build
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run lint
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm test
