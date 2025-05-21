@@ -1,5 +1,4 @@
 import { Pageable } from './pageable';
-import _ from 'lodash';
 
 export interface Slice<Type> {
   getContent(): Type[];

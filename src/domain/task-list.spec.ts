@@ -33,7 +33,9 @@ describe('TaskList', () => {
   it('should not add duplicate tasks', () => {
     const task = new Task(2);
     taskList.addTask(task);
-    expect(() => taskList.addTask(task)).toThrow('Task already exists in the task list');
+    expect(() => taskList.addTask(task)).toThrow(
+      'Task already exists in the task list',
+    );
   });
 
   it('should remove a task', () => {
@@ -45,7 +47,9 @@ describe('TaskList', () => {
 
   it('should throw when removing a non-existent task', () => {
     const task = new Task(4);
-    expect(() => taskList.removeTask(task)).toThrow('Task not found in the task list');
+    expect(() => taskList.removeTask(task)).toThrow(
+      'Task not found in the task list',
+    );
   });
 
   it('should update a task', () => {
@@ -53,12 +57,14 @@ describe('TaskList', () => {
     taskList.addTask(task);
     const updatedTask = new Task(5);
     taskList.updateTask(updatedTask);
-    expect(taskList.getTasks().find(t => t.getId() === 5)).toBe(updatedTask);
+    expect(taskList.getTasks().find((t) => t.getId() === 5)).toBe(updatedTask);
   });
 
   it('should throw when updating a non-existent task', () => {
     const task = new Task(6);
-    expect(() => taskList.updateTask(task)).toThrow('Task not found in the task list');
+    expect(() => taskList.updateTask(task)).toThrow(
+      'Task not found in the task list',
+    );
   });
 
   it('should initialize with tasks if provided', () => {
