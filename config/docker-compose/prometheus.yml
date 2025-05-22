@@ -1,0 +1,8 @@
+scrape_configs:
+  - job_name: 'Task List Metrics'
+    metrics_path: '/metrics'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['host.docker.internal:3000']
+        labels:
+          application: 'Task List'
