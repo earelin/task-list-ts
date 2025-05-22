@@ -1,4 +1,9 @@
-FROM node:22.15.1 AS base
+FROM node:22.15.1-bookworm-slim AS base
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV NODE_ENV=production
 

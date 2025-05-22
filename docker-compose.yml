@@ -1,4 +1,23 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-list
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://root:secret@mongodb:27017/task-list?authSource=admin
+    profiles:
+      - run-app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      - mongodb
+
   mongodb:
     image: mongo:8.0.9
     container_name: mongodb
