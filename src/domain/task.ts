@@ -5,7 +5,7 @@ export class Task {
     this.#id = id;
   }
 
-  getId(): number {
+  get id(): number {
     return this.#id;
   }
 }

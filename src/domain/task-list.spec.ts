@@ -57,7 +57,7 @@ describe('TaskList', () => {
     taskList.addTask(task);
     const updatedTask = new Task(5);
     taskList.updateTask(updatedTask);
-    expect(taskList.getTasks().find((t) => t.getId() === 5)).toBe(updatedTask);
+    expect(taskList.getTasks().find((t) => t.id === 5)).toBe(updatedTask);
   });
 
   it('should throw when updating a non-existent task', () => {

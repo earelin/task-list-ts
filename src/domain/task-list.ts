@@ -45,7 +45,7 @@ export class TaskList {
   }
 
   removeTask(task: Task): void {
-    const index = this.#tasks.findIndex((t) => t.getId() === task.getId());
+    const index = this.#tasks.findIndex((t) => t.id === task.id);
     if (index === -1) {
       throw new Error('Task not found in the task list');
     }
@@ -53,7 +53,7 @@ export class TaskList {
   }
 
   updateTask(task: Task): void {
-    const index = this.#tasks.findIndex((t) => t.getId() === task.getId());
+    const index = this.#tasks.findIndex((t) => t.id === task.id);
     if (index === -1) {
       throw new Error('Task not found in the task list');
     }
@@ -61,6 +61,6 @@ export class TaskList {
   }
 
   #containsTask(task: Task): boolean {
-    return this.#tasks.some((t) => t.getId() === task.getId());
+    return this.#tasks.some((t) => t.id === task.id);
   }
 }
