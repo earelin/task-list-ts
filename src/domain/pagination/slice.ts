@@ -1,10 +1,10 @@
 import { Pageable } from './pageable';
 
 export interface Slice<Type> {
-  getContent(): Type[];
-  getNumber(): number;
-  getNumberOfElements(): number;
-  getSize(): number;
+  content: Type[];
+  number: number;
+  numberOfElements: number;
+  size: number;
 }
 
 export class SliceImpl<Type> implements Slice<Type> {
@@ -16,19 +16,19 @@ export class SliceImpl<Type> implements Slice<Type> {
     this.#pageable = pageable;
   }
 
-  getContent(): Type[] {
+  get content(): Type[] {
     return this.#content;
   }
 
-  getNumber(): number {
-    return this.#pageable.getPageNumber();
+  get number(): number {
+    return this.#pageable.pageNumber;
   }
 
-  getNumberOfElements(): number {
+  get numberOfElements(): number {
     return this.#content.length;
   }
 
-  getSize(): number {
-    return this.#pageable.getPageSize();
+  get size(): number {
+    return this.#pageable.pageSize;
   }
 }

@@ -7,10 +7,10 @@ describe('SliceImpl', () => {
     const pageable = new PageRequest(2, 5);
     const slice = new SliceImpl(content, pageable);
 
-    expect(slice.getContent()).toEqual(content);
-    expect(slice.getNumber()).toBe(2);
-    expect(slice.getSize()).toBe(5);
-    expect(slice.getNumberOfElements()).toBe(3);
+    expect(slice.content).toEqual(content);
+    expect(slice.number).toBe(2);
+    expect(slice.size).toBe(5);
+    expect(slice.numberOfElements).toBe(3);
   });
 
   it('should handle empty content', () => {
@@ -18,9 +18,9 @@ describe('SliceImpl', () => {
     const pageable = new PageRequest(0, 10);
     const slice = new SliceImpl(content, pageable);
 
-    expect(slice.getContent()).toEqual([]);
-    expect(slice.getNumber()).toBe(0);
-    expect(slice.getSize()).toBe(10);
-    expect(slice.getNumberOfElements()).toBe(0);
+    expect(slice.content).toEqual([]);
+    expect(slice.number).toBe(0);
+    expect(slice.size).toBe(10);
+    expect(slice.numberOfElements).toBe(0);
   });
 });

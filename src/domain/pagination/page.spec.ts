@@ -8,12 +8,12 @@ describe('PageImpl', () => {
     const totalElements = 10;
     const page = new PageImpl(content, pageable, totalElements);
 
-    expect(page.getContent()).toEqual(content);
-    expect(page.getNumber()).toBe(1);
-    expect(page.getSize()).toBe(4);
-    expect(page.getNumberOfElements()).toBe(4);
-    expect(page.getTotalElements()).toBe(10);
-    expect(page.getTotalPages()).toBe(3);
+    expect(page.content).toEqual(content);
+    expect(page.number).toBe(1);
+    expect(page.size).toBe(4);
+    expect(page.numberOfElements).toBe(4);
+    expect(page.totalElements).toBe(10);
+    expect(page.totalPages).toBe(3);
   });
 
   it('should handle empty content and zero total elements', () => {
@@ -22,11 +22,11 @@ describe('PageImpl', () => {
     const totalElements = 0;
     const page = new PageImpl(content, pageable, totalElements);
 
-    expect(page.getContent()).toEqual([]);
-    expect(page.getNumber()).toBe(0);
-    expect(page.getSize()).toBe(5);
-    expect(page.getNumberOfElements()).toBe(0);
-    expect(page.getTotalElements()).toBe(0);
-    expect(page.getTotalPages()).toBe(0);
+    expect(page.content).toEqual([]);
+    expect(page.number).toBe(0);
+    expect(page.size).toBe(5);
+    expect(page.numberOfElements).toBe(0);
+    expect(page.totalElements).toBe(0);
+    expect(page.totalPages).toBe(0);
   });
 });

@@ -6,7 +6,7 @@ export class Sort {
     this.#orders = orders;
   }
 
-  getOrders(): SortOrder[] {
+  get orders(): SortOrder[] {
     return this.#orders;
   }
 
@@ -24,11 +24,11 @@ export class SortOrder {
     this.#property = property;
   }
 
-  getDirection(): SortDirection {
+  get direction(): SortDirection {
     return this.#direction;
   }
 
-  getProperty(): string {
+  get property(): string {
     return this.#property;
   }
 }

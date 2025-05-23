@@ -2,8 +2,8 @@ import { Pageable } from './pageable';
 import { Slice, SliceImpl } from './slice';
 
 export interface Page<Type> extends Slice<Type> {
-  getTotalElements(): number;
-  getTotalPages(): number;
+  totalElements: number;
+  totalPages: number;
 }
 
 export class PageImpl<Type> implements Page<Type> {
@@ -15,27 +15,27 @@ export class PageImpl<Type> implements Page<Type> {
     this.#totalElements = total;
   }
 
-  getTotalElements(): number {
+  get totalElements(): number {
     return this.#totalElements;
   }
 
-  getTotalPages(): number {
-    return Math.ceil(this.#totalElements / this.#slice.getSize());
+  get totalPages(): number {
+    return Math.ceil(this.#totalElements / this.#slice.size);
   }
 
-  getContent(): Type[] {
-    return this.#slice.getContent();
+  get content(): Type[] {
+    return this.#slice.content;
   }
 
-  getNumber(): number {
-    return this.#slice.getNumber();
+  get number(): number {
+    return this.#slice.number;
   }
 
-  getNumberOfElements(): number {
-    return this.#slice.getNumberOfElements();
+  get numberOfElements(): number {
+    return this.#slice.numberOfElements;
   }
 
-  getSize(): number {
-    return this.#slice.getSize();
+  get size(): number {
+    return this.#slice.size;
   }
 }

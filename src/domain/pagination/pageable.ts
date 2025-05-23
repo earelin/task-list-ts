@@ -1,10 +1,13 @@
 import { Sort } from './sort';
 
 export interface Pageable {
+  offset: number;
+  pageNumber: number;
+  pageSize: number;
+  sort: Sort;
+
   first(): Pageable;
-  getOffset(): number;
-  getPageNumber(): number;
-  getPageSize(): number;
+
   next(): Pageable;
 }
 
@@ -23,23 +26,23 @@ export class PageRequest implements Pageable {
     return new PageRequest(0, this.#pageSize);
   }
 
-  getOffset(): number {
-    return this.#pageNumber * this.#pageSize;
-  }
-
-  getPageNumber(): number {
-    return this.#pageNumber;
-  }
-
-  getPageSize(): number {
-    return this.#pageSize;
-  }
-
   next(): Pageable {
     return new PageRequest(this.#pageNumber + 1, this.#pageSize);
   }
 
-  getSort(): Sort {
+  get offset(): number {
+    return this.#pageNumber * this.#pageSize;
+  }
+
+  get pageNumber(): number {
+    return this.#pageNumber;
+  }
+
+  get pageSize(): number {
+    return this.#pageSize;
+  }
+
+  get sort(): Sort {
     return this.#sort;
   }
 }
