@@ -2,39 +2,23 @@ import { Task } from './task';
 
 export class TaskList {
   readonly #id: string;
-  #name: string;
-  #description: string;
+  name: string;
+  description: string;
   readonly #tasks: Task[];
 
   constructor(id: string, name: string, description: string, tasks?: Task[]) {
     this.#id = id;
-    this.#name = name;
-    this.#description = description;
+    this.name = name;
+    this.description = description;
     this.#tasks = tasks || [];
   }
 
-  getId(): string {
+  get id(): string {
     return this.#id;
   }
 
-  getName(): string {
-    return this.#name;
-  }
-
-  getDescription(): string {
-    return this.#description;
-  }
-
-  getTasks(): Task[] {
+  get tasks(): Task[] {
     return [...this.#tasks];
-  }
-
-  setName(name: string): void {
-    this.#name = name;
-  }
-
-  setDescription(description: string): void {
-    this.#description = description;
   }
 
   addTask(task: Task): void {

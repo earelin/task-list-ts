@@ -12,22 +12,22 @@ describe('TaskList', () => {
   });
 
   it('should return the correct id, name, and description', () => {
-    expect(taskList.getId()).toBe(id);
-    expect(taskList.getName()).toBe(name);
-    expect(taskList.getDescription()).toBe(description);
+    expect(taskList.id).toBe(id);
+    expect(taskList.name).toBe(name);
+    expect(taskList.description).toBe(description);
   });
 
   it('should set name and description', () => {
-    taskList.setName('New Name');
-    taskList.setDescription('New Desc');
-    expect(taskList.getName()).toBe('New Name');
-    expect(taskList.getDescription()).toBe('New Desc');
+    taskList.name = 'New Name';
+    taskList.description = 'New Desc';
+    expect(taskList.name).toBe('New Name');
+    expect(taskList.description).toBe('New Desc');
   });
 
   it('should add a task', () => {
     const task = new Task(1);
     taskList.addTask(task);
-    expect(taskList.getTasks()).toContain(task);
+    expect(taskList.tasks).toContain(task);
   });
 
   it('should not add duplicate tasks', () => {
@@ -42,7 +42,7 @@ describe('TaskList', () => {
     const task = new Task(3);
     taskList.addTask(task);
     taskList.removeTask(task);
-    expect(taskList.getTasks()).not.toContain(task);
+    expect(taskList.tasks).not.toContain(task);
   });
 
   it('should throw when removing a non-existent task', () => {
@@ -57,7 +57,7 @@ describe('TaskList', () => {
     taskList.addTask(task);
     const updatedTask = new Task(5);
     taskList.updateTask(updatedTask);
-    expect(taskList.getTasks().find((t) => t.id === 5)).toBe(updatedTask);
+    expect(taskList.tasks.find((t) => t.id === 5)).toBe(updatedTask);
   });
 
   it('should throw when updating a non-existent task', () => {
@@ -71,6 +71,6 @@ describe('TaskList', () => {
     const taskA = new Task(7);
     const taskB = new Task(8);
     const list = new TaskList('id', 'n', 'd', [taskA, taskB]);
-    expect(list.getTasks()).toEqual([taskA, taskB]);
+    expect(list.tasks).toEqual([taskA, taskB]);
   });
 });
