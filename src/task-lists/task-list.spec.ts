@@ -1,5 +1,5 @@
 import { TaskList } from './task-list';
-import { Task } from './task';
+import { Task } from '../tasks/task';
 
 describe('TaskList', () => {
   const id = 'list-1';

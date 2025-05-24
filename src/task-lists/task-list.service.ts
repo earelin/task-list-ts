@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { TaskListRepository } from './task-list.repository';
-import { Pageable } from './pagination/pageable';
+import { Pageable } from '../commons/pagination/pageable';
 
 @Injectable()
 export class TaskListService {
