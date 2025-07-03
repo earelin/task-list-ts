@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { UsersService } from '././users.service';
+import { UsersService } from '../../domain/users.service';
 import { Promise } from 'mongoose';
 import { instanceToInstance, plainToInstance } from 'class-transformer';
 

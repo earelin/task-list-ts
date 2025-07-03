@@ -1,4 +1,4 @@
-import { Task } from '../tasks/task';
+import { Task } from './task';
 
 export class TaskList {
   readonly #id: string;

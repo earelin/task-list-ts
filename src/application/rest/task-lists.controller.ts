@@ -1,8 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { TaskList } from './task-list';
-import { Page } from '../commons/pagination/page';
-import { PageRequest } from '../commons/pagination/pageable';
-import { TaskListService } from './task-list.service';
+import { TaskList } from '../../domain/task-list';
+import { Page } from '../../domain/pagination/page';
+import { PageRequest } from '../../domain/pagination/pageable';
+import { TaskListService } from '../../domain/task-list.service';
 
 @Controller('task-lists')
 export class TaskListsController {
